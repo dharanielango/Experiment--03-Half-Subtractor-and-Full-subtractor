@@ -29,26 +29,74 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 
 
-Write the detailed procedure here 
+### STEP 1:
+Use module projname(input,output) to start the Verilog programmming.
+
+### STEP 2:
+Assign inputs and outputs using the word input and output respectively.
+
+### STEP 3:
+Use defined keywords like wire,assign and required logic gates to represent the boolean expression.
+
+### STEP 4:
+Use each output to represnt onre for differnce and the other for borrow.
+
+### STEP 5:
+End the verilog program using keyword endmodule.
 
 
 ## Program:
+```
 /*
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Dharani Elango
+RegisterNumber:  212221230021
 */
 
+HALF SUBTRACTOR:
+module subractor(A,b,diff,borrow);
+input A,b;
+output diff,borrow;
+wire X;
+xor(diff,A,b);
+not(X,A);
+and(borrow,X,b);
+endmodule
+
+FULL SUBTRACTOR:
+
+ module fullsub(A,B,C,Diff,Borrow);
+input A,B,C;
+output Diff,Borrow;
+wire p;
+assign Diff = ((A^B)^C);
+not(p,A);
+assign Borrow = ((p&B)|(p&C)|(B&C));
+endmodule 
+```
 ## Output:
+## HALF SUBTRACTOR:
+### LOGIC GATES:
+![OUTPUT](./ES1.png)
+### TRUTHTABLE:
+![OUTPUT](./ES2.png)
+###  RTL realization:
+![OUTPUT](./ES3.png)
+### Timing diagram
+![OUTPUT](./ES4.png)
+## FULL SUBTRACTOR:
+### LOGIC GATES:
+![OUTPUT](./ES5.png)
+### TRUTHTABLE:
+![OUTPUT](./ES6.png)
+###  RTL realization:
+![OUTPUT](./ES7.png)
+### Timing diagram:
+![OUTPUT](./ES8.png)
 
-## Truthtable
 
 
 
-##  RTL realization
-
-
-## Timing diagram 
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
